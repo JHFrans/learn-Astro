@@ -1,6 +1,17 @@
 ---
 const pageTitle = "About Me";
 
+const identity = {
+	firstName: "Jeffrey",
+	country: "Indonesia",
+	occupation: "Hobby Developer",
+	hobbies: ["Coding", "Singing", "Swimming"],};
+
+const skills = ["HTML", "CSS", "..." ];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -12,20 +23,33 @@ const pageTitle = "About Me";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<body>
-            <a href="/">Home</a>
-            <a href="/about/">About</a>
-            <a href="/blog/">Blog</a>
-            <h1>{pageTitle}</h1>
 
-            <h2>... and my new Astro site!</h2>
-          
-            <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-          
-            <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+		<a href="/">Home</a>
+		<a href="/about/">About</a>
+		<a href="/blog/">Blog</a>
+		<h1>{pageTitle}</h1>
 
-        </body>
+		<h2>... and my new Astro site!</h2>
+		
+		<p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
+		
+		<p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+		<p>Here are a view fact about me:</p>
+		<ul>
+			<li>My Name is {identity.firstName}</li>
+			<li>I live in {identity.country} and I work as {identity.occupation}</li>
+			{identity.hobbies.length >= 2 && 
+			<li>Two of my Hobbies are {identity.hobbies[0]} and {identity.hobbies[1]}</li>}
+		</ul>
+		<p>My Skill are</p>
+		<ul>
+			{skills.map((skill)=> <li>{skill}</li>)}
+		</ul>
+        {happy && <p>I am happy to be learning Astro</p> }
+		{finished && <p>I finished this tutorial</p>}
+		{goal === 3 ? <p>My goal is to finish in 3 days</p> : <p>My goal is not 3 days</p>}
 
 
 	</body>
 </html>
+
