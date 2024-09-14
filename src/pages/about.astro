@@ -1,10 +1,11 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = "About Me";
 
 const identity = {
 	firstName: "Jeffrey",
 	country: "Indonesia",
-	occupation: "Hobby Developer",
+	occupation: "Driver",
 	hobbies: ["Coding", "Singing", "Swimming"],};
 
 const skills = ["html", "css", "..." ];
@@ -19,39 +20,20 @@ const textCase = "uppercase"
 const size = "1.5rem"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-		
+<BaseLayout pageTitle={pageTitle}>
+
+	<body>
 		<style define:vars={{skillColor, fontWeight, textCase, size}}>
-			h1 {
-				color: purple;
-				font-size: 4rem;
-			}
 			.skill {
 				color: var(--skillColor);
 				font-size: var(--size);
 				font-weight: var(--fontWeight);
 				text-transform: var(--textCase);
-				;
 			}
 		</style>
-	</head>
-	<body>
 
-		<a href="/">Home</a>
-		<a href="/about/">About</a>
-		<a href="/blog/">Blog</a>
-		<h1>{pageTitle}</h1>
-
-		<h2>... and my new Astro site!</h2>
-		
+		<h2>... and my new Astro site!</h2>		
 		<p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-		
 		<p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
 		<p>Here are a view fact about me:</p>
 		<ul>
@@ -70,5 +52,5 @@ const size = "1.5rem"
 
 
 	</body>
-</html>
+</BaseLayout>
 

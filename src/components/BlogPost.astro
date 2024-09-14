@@ -1,0 +1,5 @@
+---
+/* allPosts used to received all md file inside Posts directory using "await Astro.glob()" */
+const {title, url} = Astro.props; 
+---
+<li><a href={url}>{title}</a></li> 
