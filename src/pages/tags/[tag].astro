@@ -14,22 +14,14 @@ export async function getStaticPaths() {
             props: {posts: filteredPosts},
         };
     });
-/*   return [
-    { params: { tag: "astro" }, props: {posts: allPosts} },
-    { params: { tag: "successes" }, props: {posts: allPosts} },
-    { params: { tag: "community" }, props: {posts: allPosts} },
-    { params: { tag: "blogging" }, props: {posts: allPosts} },
-    { params: { tag: "setbacks" }, props: {posts: allPosts} },
-    { params: { tag: "learning in public" }, props: {posts: allPosts} },
-  ]; */
 }
 
 const { tag } = Astro.params;
-const {posts} = Astro.props;
+const { posts } = Astro.props;
 ---
 <BaseLayout pageTitle={tag}>
   <p>Posts tagged with <strong>{tag}</strong> word</p>
   <ul>
-    {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title}/>)} 
-</ul>
+    {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title}/>)}
+  </ul>
 </BaseLayout>
